@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css);
+
+.container {
+  max-width: 1170px;
+  padding: 0 15px;
+  margin: auto;
+  position: relative;
+  z-index: 3;
+}
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+}
+h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.header {
+}
+.ai-tools {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.menu {
+  background: #acacac;
+  width: 25%;
+}
+
+.greeting {
+  width: 650px;
+  height: 200px;
+  text-align: center;
+  margin: 150px auto 300px;
+}
+.messages {
+  background: #dedddd;
+  width: 75%;
+}
+.form-request {
+  display: flex;
+  margin: 0 auto 20px;
+  width: 800px;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+}
+.request-input {
+  padding: 20px;
+  width: 800px;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+}
+.request-button {
+  width: 70px;
+  height: 30px;
+}
+.fa-paper-plane {
+  background-color: black;
+}
+
+.footer {
+}

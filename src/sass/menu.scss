@@ -1,0 +1,38 @@
+.menu {
+  background: #acacac;
+  width: 25%;
+
+  .menu-btns {
+    display: flex;
+    flex-direction: column;
+
+    .menu-btn {
+      width: 300px;
+      height: 30px;
+      background-color: #918f8f;
+      border: none;
+      border-radius: 20px;
+      margin: 0 auto 10px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      &:last-child {
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  .request-history {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: auto;
+    .request {
+      margin: 0 auto 10px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: #202020;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.greeting {
+  width: 650px;
+  height: 200px;
+  text-align: center;
+  margin: 150px auto 300px;
+}
+.messages {
+  background: #dedddd;
+  width: 75%;
+
+  .form-request {
+    display: flex;
+    background-color: #fff;
+    width: 750px;
+    height: 50px;
+    margin: 0 auto 20px;
+    border: none;
+    border-radius: 30px;
+
+    .request-input {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 18px;
+      width: 700px;
+      padding: 25px;
+      border: none;
+      border-radius: 30px;
+      margin-right: 5px;
+    }
+    .request-button {
+      border: none;
+      overflow: hidden;
+      background-color: #fff;
+      cursor: pointer;
+
+      .fa-paper-plane {
+        font-size: 25px;
+      }
+    }
+  }
+}
