@@ -8,37 +8,12 @@ def process_user_request(prompt):
         messages=[{"role": "user", "content": prompt}]
     )
     ans = ""
-    #print(prompt)
+    manyStrings = True
+    if isinstance(response, str): 
+        manyStrings = False
     for message in response:
-        #print(message, flush=True, end='')
         ans += message
+        if manyStrings:
+            ans += '\n'
     # Возвращаем ответ
     return ans
-
-#print(process_user_request("Can you write code that will multiply 2 matrices on C++?"))
-
-"""import g4f
-
-prompt = 'Highest mountain in the world'
-
-response = g4f.ChatCompletion.create(
-    model="gpt-4o-mini",
-    messages=[{"role": "user", "content": prompt}],
-    stream=True
-)
-
-for message in response:
-    print(message, flush=True, end='')
-
-
-prompt = 'Напиши код на Python, который изображает график зменения цены биткоина'
-
-response = g4f.ChatCompletion.create(
-    model="gpt-4o-mini",
-    messages=[{"role": "user", "content": prompt}],
-    stream=True,
-)
-
-for message in response:
-    print(message, flush=True, end='')
-"""
