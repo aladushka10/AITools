@@ -7,13 +7,12 @@
   "description": "",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.13.0",
-    "parcel-bundler": "^1.12.5",
     "sass": "^1.81.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel ./templates/index.html",
-    "build": "parcel build static\\sass\\index.scss --dist-dir static\\css --no-scope-hoist",
+    "build": "parcel build static/sass/index.scss --dist-dir static/css --no-scope-hoist",
     "watch": "parcel watch static/sass/index.scss --dist-dir ./static/css"
   },
   "keywords": [],
