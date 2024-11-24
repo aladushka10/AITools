@@ -1,18 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>g4f Integration</title>
-    <script src="static/script.js"></script>
-</head>
-<body>
-    <h1>Ask GPT</h1>
-    <label for="userPrompt">Enter your question:</label>
-    <input type="text" id="userPrompt" placeholder="Type your question here">
-    <button onclick="sendG4FRequest()">Ask</button>
-    
-    <p>Response: <span id="response"></span></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container"></div>
+    </header>
+    <section class="ai-tools" id="ai-tools">
+      <div class="menu" id="menu">
+        <div class="container">
+          <h3>AITools</h3>
+          <div class="menu-btns">
+            <button class="menu-btn">Paint</button>
+            <button class="menu-btn">Presentation</button>
+            <button class="menu-btn">File</button>
+          </div>
+          <div class="request-history">
+            <div class="request">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt ea sit aperiam, cum reiciendis perspiciatis iure
+                repellendus! Deleniti dolore velit ratione corporis cumque ut,
+                ex voluptatem, inventore, natus tempora numquam!
+              </p>
+            </div>
+            <div class="request">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt ea sit aperiam, cum reiciendis perspiciatis iure
+                repellendus! Deleniti dolore velit ratione corporis cumque ut,
+                ex voluptatem, inventore, natus tempora numquam!
+              </p>
+            </div>
+            <div class="request">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt ea sit aperiam, cum reiciendis perspiciatis iure
+                repellendus! Deleniti dolore velit ratione corporis cumque ut,
+                ex voluptatem, inventore, natus tempora numquam!
+              </p>
+            </div>
+            <div class="request">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt ea sit aperiam, cum reiciendis perspiciatis iure
+                repellendus! Deleniti dolore velit ratione corporis cumque ut,
+                ex voluptatem, inventore, natus tempora numquam!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="messages" id="messages">
+        <div class="container">
+          <div class="greeting">
+            <h1>Welcom to AITools!</h1>
+            <h2>How can i help you?</h2>
+          </div>
+          <p>Response: <span id="response"></span></p>
+          <form class="form-request" id="form-request">
+            <label for="request"></label>
+            <input
+              id="request-input"
+              class="request-input"
+              name="request"
+              placeholder="Enter your request"
+            />
 
-</body>
+            <button id="request-button" class="request-button">
+              <i class="fa-regular fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container"></div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="static/script.js"></script>
+  </body>
 </html>

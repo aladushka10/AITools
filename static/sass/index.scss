@@ -6,11 +6,11 @@
   box-sizing: border-box;
 }
 
-@import "../sass/cdn";
-@import "../sass/header.scss";
-@import "../sass/menu.scss";
-@import "../sass/message.scss";
-@import "../sass/footer.scss";
+@import "./cdn";
+@import "./header.scss";
+@import "./menu.scss";
+@import "./message.scss";
+@import "./footer.scss";
 
 .container {
   max-width: 1170px;
