@@ -8,12 +8,6 @@ def process_user_request(prompt):
         messages=[{"role": "user", "content": prompt}]
     )
     ans = ""
-    manyStrings = True
-    if isinstance(response, str): 
-        manyStrings = False
     for message in response:
         ans += message
-        if manyStrings:
-            ans += '\n'
-    # Возвращаем ответ
-    return ans
+    return ans 
