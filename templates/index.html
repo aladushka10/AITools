@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
     <title>Document</title>
   </head>
   <body>
@@ -44,14 +47,6 @@
                 ex voluptatem, inventore, natus tempora numquam!
               </p>
             </div>
-            <div class="request">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt ea sit aperiam, cum reiciendis perspiciatis iure
-                repellendus! Deleniti dolore velit ratione corporis cumque ut,
-                ex voluptatem, inventore, natus tempora numquam!
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -61,7 +56,9 @@
             <h1>Welcom to AITools!</h1>
             <h2>How can i help you?</h2>
           </div>
-          <p>Response: <span id="response"></span></p>
+          <div class="response">
+            <p id="response"></p>
+          </div>
           <form class="form-request" id="form-request">
             <label for="request"></label>
             <input
