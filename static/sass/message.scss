@@ -2,18 +2,35 @@
   width: 650px;
   height: 200px;
   text-align: center;
-  margin: 150px auto 300px;
+  margin: 50px auto 20px;
 }
 .messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: #dedddd;
   width: 75%;
+  height: 100vh;
 
+  .response {
+    display: flex;
+    flex-direction: column-reverse;
+    max-height: 300px;
+    padding: 0 60px 30px;
+    margin: 0 auto 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    overflow-y: scroll;
+    max-height: 300px;
+    width: 90%;
+  }
   .form-request {
     display: flex;
     background-color: #fff;
     width: 750px;
     height: 50px;
-    margin: 0 auto 20px;
+    margin: 0 auto 70px;
     border: none;
     border-radius: 30px;
 
