@@ -9,16 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault()
-
-    requestInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") {
-        processRequest(requestInput.value)
-        requestInput.value = ""
-      }
-    })
-    requestButton.addEventListener("click", () => {
-      processRequest(requestInput.value)
-      requestInput.value = ""
-    })
+    processRequest(requestInput.value)
+    requestInput.value = ""
   })
 })

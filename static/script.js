@@ -8,8 +8,28 @@ async function sendG4FRequest(input) {
     body: JSON.stringify({ prompt: input }),
   })
 
+  console.log(input)
   const data = await response.json()
   console.log(data)
-  const responseText = document.getElementById("response").textContent
-  document.getElementById("response").textContent = data.response
+  let toInsert = ""
+  for (symb of data.response) {
+    if (symb == '\n') {
+        let add = document.createElement("p")
+        add.innerHTML = toInsert
+        document.getElementById("response").append(add)
+        toInsert = ""
+    }
+    else if (symb == ' ') {
+        toInsert += '&nbsp;'
+    }
+    else {
+        toInsert += symb
+    }
+  }
+  if (toInsert != "") {
+    let add = document.createElement("p")
+    add.innerHTML = toInsert
+    document.getElementById("response").append(add)
+    toInsert = ""
+  }
 }
