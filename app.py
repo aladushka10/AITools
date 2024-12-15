@@ -19,10 +19,17 @@ def g4f_query():
         print("user input:")
         print(user_input)
         # Передаем запрос в g4f
-        response = functions.process_user_request(user_input)
+        model_type = functions.determine_model(user_input)
+        response = ""
+        if model_type == "1":
+            response = functions.process_user_request_text_answer(user_input)
+            return jsonify({"model": "text", "response": response})
+        if model_type == "2":
+            url = functions.process_user_request_image_answer(user_input)
+            print("Generated image URL: {url}")
+            return jsonify({"model": "image", "response": url})
 
-        # Возвращаем ответ как JSON
-        return jsonify({"response": response})
+        return jsonify({"response": "Error occured. Try again!"})
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
