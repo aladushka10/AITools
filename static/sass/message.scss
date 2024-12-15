@@ -8,36 +8,55 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-content: space-between;
   background: #dedddd;
   width: 75%;
   height: 100vh;
-
-  .response {
+  .dialogWrap {
     display: flex;
     flex-direction: column;
-    max-height: 300px;
-    padding: 0 60px 30px;
+    justify-content: space-between;
+    max-height: 600px;
+    padding: 0 auto 30px;
     margin: 0 auto 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
     overflow-y: scroll;
-    max-height: 300px;
-    width: 90%;
+    width: 100%;
+    .response {
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+      padding: 20px;
+      margin-bottom: 30px;
+      font-family: $font;
+      font-size: 16px;
+      font-weight: $f-w;
+      width: 90%;
+    }
+
+    .request-value {
+      display: flex;
+      flex-direction: column;
+      align-self: flex-end;
+      font-family: $font;
+      font-size: 16px;
+      font-weight: $f-w;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
   }
   .form-request {
     display: flex;
     background-color: #fff;
-    width: 750px;
+    min-width: 650px;
     height: 50px;
-    margin: 0 auto 70px;
+    margin: 0 auto 30px;
     border: none;
     border-radius: 30px;
 
     .request-input {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: $font;
       font-size: 18px;
-      width: 700px;
+      width: 90%;
       padding: 25px;
       border: none;
       border-radius: 30px;
