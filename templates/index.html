@@ -7,12 +7,9 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/index.css') }}"
     />
-    <title>Document</title>
+    <title>AITools</title>
   </head>
   <body>
-    <header class="header">
-      <div class="container"></div>
-    </header>
     <section class="ai-tools" id="ai-tools">
       <div class="menu" id="menu">
         <div class="container">
@@ -44,13 +41,13 @@
       </div>
       <div class="messages" id="messages">
         <div class="container">
-          <div class="greeting">
+          <div id="greeting" class="greeting">
             <h1>Welcom to AITools!</h1>
             <h2>How can i help you?</h2>
           </div>
-          <div class="response" id = "response">
-          </div>
-          <form class="form-request" id="form-request">
+          <div id="dialogWrap" class="dialogWrap"></div>
+
+          <form id="form-request" class="form-request">
             <label for="request"></label>
             <input
               id="request-input"
@@ -66,10 +63,8 @@
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container"></div>
-    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-    <script src="static/script.js"></script>
+    <script src="static/js/script.js"></script>
   </body>
 </html>

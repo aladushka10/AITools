@@ -14,9 +14,9 @@
       border: none;
       border-radius: 20px;
       margin: 0 auto 10px;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: $font;
       font-size: 16px;
-      font-weight: 400;
+      font-weight: $f-w;
       &:last-child {
         margin-bottom: 50px;
       }
@@ -30,7 +30,7 @@
     margin: auto;
     .request {
       margin: 0 auto 10px;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: $font;
       font-size: 14px;
       font-weight: 300;
       color: #202020;
