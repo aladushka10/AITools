@@ -47,100 +47,31 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     const data = await response.json()
-    let toInsert = ""
-    for (const symb of data.response) {
-      if (symb === "\n") {
+    if (data.model === "text") {
+      let toInsert = ""
+      for (const symb of data.response) {
+        if (symb === "\n") {
+          const add = document.createElement("p")
+          add.innerHTML = marked.parse(toInsert.trim())
+          document.querySelector(".response:last-of-type").append(add)
+          toInsert = ""
+        } else {
+          toInsert += symb
+        }
+      }
+      if (toInsert !== "") {
         const add = document.createElement("p")
         add.innerHTML = marked.parse(toInsert.trim())
         document.querySelector(".response:last-of-type").append(add)
-        toInsert = ""
-      } else {
-        toInsert += symb
       }
-    }
-    if (toInsert !== "") {
-      const add = document.createElement("p")
-      add.innerHTML = marked.parse(toInsert.trim())
+    } else if (data.model === "image") {
+      const add = document.createElement("div")
+      const img = document.createElement("img")
+      img.src = data.response
+      img.style.width = "400px"
+      img.style.height = "400px"
+      add.append(img)
       document.querySelector(".response:last-of-type").append(add)
     }
   }
 })
-
-// async function sendG4FRequest(input) {
-//   const response = await fetch("/api/g4f_query", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({ prompt: input }),
-//   })
-
-//   const data = await response.json()
-//   let toInsert = ""
-//   for (const symb of data.response) {
-//     if (symb === "\n") {
-//       const add = document.createElement("p")
-//       add.innerHTML = marked.parse(toInsert.trim())
-//       document.querySelector(".response:last-of-type").append(add)
-//       toInsert = ""
-//     } else {
-//       toInsert += symb
-//     }
-//   }
-//   if (toInsert !== "") {
-//     const add = document.createElement("p")
-//     add.innerHTML = marked.parse(toInsert.trim())
-//     document.querySelector(".response:last-of-type").append(add)
-//   }
-// }
-
-// async function sendG4FRequest(input) {
-//   const response = await fetch("/api/g4f_query", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({ prompt: input }),
-//   })
-
-//   console.log(input)
-//   const data = await response.json()
-//   console.log(data)
-//   let toInsert = ""
-//   for (symb of data.response) {
-//     if (symb == "\n") {
-//       let add = document.createElement("p")
-//       let finalToInsert = ""
-//       let i = 0
-//       for (i; i < toInsert.length; ++i) {
-//         if (toInsert[i] == " ") {
-//           finalToInsert += "&nbsp"
-//         } else {
-//           break
-//         }
-//       }
-//       for (i; i < toInsert.length; ++i) finalToInsert += toInsert[i]
-//       add.innerHTML = marked.parse(finalToInsert)
-//       document.querySelector(".response:last-of-type").append(add)
-//       toInsert = ""
-//     } else {
-//       toInsert += symb
-//     }
-//   }
-//   if (toInsert != "") {
-//     let add = document.createElement("p")
-//     let finalToInsert = ""
-//     let i = 0
-//     for (i; i < toInsert.length; ++i) {
-//       if (toInsert[i] == " ") {
-//         finalToInsert += "&nbsp"
-//       } else {
-//         break
-//       }
-//     }
-//     for (i; i < toInsert.length; ++i) finalToInsert += toInsert[i]
-//     add.innerHTML = marked.parse(finalToInsert)
-//     document.querySelector(".response:last-of-type").append(add)
-//     toInsert = ""
-//   }
-// }
