@@ -56,7 +56,7 @@
     .request-input {
       font-family: $font;
       font-size: 18px;
-      width: 90%;
+      width: 87%;
       padding: 25px;
       border: none;
       border-radius: 30px;
@@ -67,8 +67,18 @@
       overflow: hidden;
       background-color: #fff;
       cursor: pointer;
+      margin-right: 10px;
 
       .fa-paper-plane {
+        font-size: 25px;
+      }
+    }
+    .record-button {
+      border: none;
+      overflow: hidden;
+      background-color: #fff;
+      cursor: pointer;
+      .fa-microphone {
         font-size: 25px;
       }
     }
