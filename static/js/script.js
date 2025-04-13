@@ -66,15 +66,37 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".response:last-of-type").append(add)
       }
     } else if (data.model === "diagram") {
-      const add = document.createElement("div")
+      const insertContainer = document.createElement("div")
       const img = document.createElement("pre")
       img.innerHTML = data.response
       img.className = "mermaid"
-      add.append(img)
-      document.querySelector(".response:last-of-type").append(add)
+      insertContainer.append(img)
+    
+      const id = `mermaid-${Date.now()}`;
 
+      document.querySelector(".response:last-of-type").append(insertContainer)
+      
       if (window.mermaid) {
         mermaid.run(); // или mermaid.init()
+        window.mermaid.render(id, data.response).then(({ svg }) => {
+          insertContainer.innerHTML = svg;
+          document.querySelector(".response:last-of-type").appendChild(insertContainer);
+  
+          const saveBtn = document.createElement("button");
+          saveBtn.textContent = "💾 Сохранить как SVG";
+          saveBtn.onclick = () => {
+            const blob = new Blob([svg], { type: "image/svg+xml" });
+            const url = URL.createObjectURL(blob);
+  
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `${id}.svg`;
+            a.click();
+  
+            URL.revokeObjectURL(url);
+          };
+          insertContainer.appendChild(saveBtn);
+        });
       } else {
         console.error("Mermaid не загружен");
       }
