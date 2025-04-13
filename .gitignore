@@ -2,10 +2,10 @@
 venv
 
 #generated
-static/generated
+static/generated/*
 
 #uploads
-uploads
+uploads/*
 
 # Logs
 logs
