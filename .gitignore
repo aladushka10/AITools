@@ -2,6 +2,7 @@
 venv
 
 #generated
+static/generated
 
 # Logs
 logs
