@@ -4,6 +4,7 @@ venv
 #generated
 static/generated
 
+#uploads
 # Logs
 logs
 *.log
