@@ -67,11 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else if (data.model === "diagram") {
       const add = document.createElement("div")
-      const img = document.createElement("div")
+      const img = document.createElement("pre")
       img.innerHTML = data.response
       img.className = "mermaid"
-      img.style.width = "400px"
-      img.style.height = "400px"
       add.append(img)
       document.querySelector(".response:last-of-type").append(add)
     } else if (data.model === "image") {

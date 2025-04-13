@@ -73,6 +73,6 @@ def process_user_request_audio_answer(prompt):
 
 def generate_diagram_code(prompt):
     prompt = "Напиши код на MERMAID для диаграммы, удовлетворяющей запросу: " + prompt \
-        + "В качестве ответа верни только код. Ничего лишнего."
+        + "В качестве ответа верни ТОЛЬКО код, без оформления, без надписи mermaid, без ```. Просто текстом. Ничего лишнего."
     response = process_user_request_text_answer(prompt)
     return response
