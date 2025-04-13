@@ -48,6 +48,10 @@ def g4f_query():
             audio_url = functions.process_user_request_audio_answer(user_input)
             print(audio_url)
             return jsonify({"model": "audio", "response": f"{audio_url}"})
+        if model_type == "4":
+            print("Diagram...")
+            diagram_code = functions.generate_diagram_code(user_input)
+            return jsonify({"model": "diagram", "response": diagram_code})
         return jsonify({"response": "Error occured. Try again!"})
 
     except Exception as e:

@@ -16,7 +16,8 @@ def determine_model(prompt):
         + prompt + "\n1. Текст/код (любой ответ в текстовом виде)"\
         + "\n2.	Изображение/Рисунок/Картинку и так далее." \
         + "\n3. Аудиозапись/Аудиофайл/Аудиосообщение/Озвучку чего-либо/Какой-либо звук и так далее" \
-        + "\nВыдай ответ в формате «1» или «2» или «3» без кавычек, который соответствует номеру одного из указанных вариантов."
+        + "\n4. Диаграмму"\
+        + "\nВыдай ответ в формате «1» или «2» или «3» или «4» без кавычек, который соответствует номеру одного из указанных вариантов."
     response = g4f.ChatCompletion.create(
         model="gpt-4o-mini", 
         messages=[{"role": "user", "content": query}]
@@ -69,3 +70,9 @@ def process_user_request_audio_answer(prompt):
     static_audio_path = os.path.join("static", "generated", filename)
     tts.save(static_audio_path)
     return f"/static/generated/{filename}"
+
+def generate_diagram_code(prompt):
+    prompt = "Напиши код на MERMAID для диаграммы, удовлетворяющей запросу: " + prompt \
+        + "В качестве ответа верни только код. Ничего лишнего."
+    response = process_user_request_text_answer(prompt)
+    return response
