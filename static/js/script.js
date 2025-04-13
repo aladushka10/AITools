@@ -67,36 +67,82 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else if (data.model === "diagram") {
       const insertContainer = document.createElement("div")
-      const img = document.createElement("pre")
-      img.innerHTML = data.response
-      img.className = "mermaid"
-      insertContainer.append(img)
+      const buttonContainer = document.createElement("div")
+      buttonContainer.style.margin = "15px auto 15px"
 
-      document.querySelector(".response:last-of-type").append(insertContainer)
-      
+      insertContainer.style.minWidth = "500px"
+      document
+        .querySelector(".response:last-of-type")
+        .append(insertContainer, buttonContainer)
+
       if (window.mermaid) {
-        mermaid.run(); // или mermaid.init()
-        const id = `mermaid-${Date.now()}`;
-        window.mermaid.render(id, data.response).then(({ svg }) => {
-          insertContainer.innerHTML = svg;
-  
-          const saveBtn = document.createElement("button");
-          saveBtn.textContent = "💾 Сохранить как SVG";
+        mermaid.run()
+        const id = `mermaid-${Date.now()}`
+        mermaid.render(id, data.response).then(({ svg }) => {
+          insertContainer.innerHTML = svg
+
+          const saveBtn = document.createElement("button")
+          const svgIcon = document.createElement("i")
+          svgIcon.textContent = "   svg"
+          svgIcon.className = "fa-solid fa-download"
+          svgIcon.style.fontSize = "17px"
+          svgIcon.style.margin = "5px"
+          saveBtn.append(svgIcon)
+          saveBtn.style.border = "grey solid 1px"
+          saveBtn.style.borderRadius = "2px"
+          saveBtn.style.marginRight = "90px"
+          saveBtn.style.cursor = "pointer"
           saveBtn.onclick = () => {
-            const blob = new Blob([svg], { type: "image/svg+xml" });
-            const url = URL.createObjectURL(blob);
-  
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = `${id}.svg`;
-            a.click();
-  
-            URL.revokeObjectURL(url);
-          };
-          insertContainer.appendChild(saveBtn);
-        });
-      } else {
-        console.error("Mermaid не загружен");
+            const blob = new Blob([svg], { type: "image/svg+xml" })
+            const url = URL.createObjectURL(blob)
+
+            const a = document.createElement("a")
+            a.href = url
+            a.download = `${id}.svg`
+            a.click()
+
+            URL.revokeObjectURL(url)
+          }
+
+          const savePNGButton = document.createElement("button")
+          const pngIcon = document.createElement("i")
+          pngIcon.textContent = "   png"
+          pngIcon.className = "fa-solid fa-download"
+          pngIcon.style.fontSize = "17px"
+          pngIcon.style.margin = "5px"
+
+          savePNGButton.append(pngIcon)
+          savePNGButton.style.border = "grey solid 1px"
+          savePNGButton.style.borderRadius = "2px"
+          savePNGButton.style.cursor = "pointer"
+          savePNGButton.onclick = () => {
+            const svgNode = insertContainer.querySelector("svg")
+
+            const wrapper = document.createElement("div")
+            wrapper.style.display = "inline-block"
+            wrapper.appendChild(svgNode.cloneNode(true))
+            document.body.appendChild(wrapper)
+            wrapper.style.position = "fixed"
+            wrapper.style.top = "-9999px"
+
+            html2canvas(wrapper, {
+              backgroundColor: null,
+              useCORS: true,
+            }).then((canvas) => {
+              wrapper.remove()
+              canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob)
+                const a = document.createElement("a")
+                a.href = url
+                a.download = `${id}.png`
+                a.click()
+                URL.revokeObjectURL(url)
+              })
+            })
+          }
+
+          buttonContainer.append(saveBtn, savePNGButton)
+        })
       }
     } else if (data.model === "image") {
       const add = document.createElement("div")

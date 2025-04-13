@@ -69,9 +69,10 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script type="module">
       import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.1.0/+esm"
-      window.mermaid = mermaid;
-      mermaid.initialize({ startOnLoad: false });
+      window.mermaid = mermaid
+      mermaid.initialize({ startOnLoad: false })
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
     <script src="static/js/script.js"></script>
   </body>
