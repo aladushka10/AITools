@@ -72,6 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
       img.className = "mermaid"
       add.append(img)
       document.querySelector(".response:last-of-type").append(add)
+
+      if (window.mermaid) {
+        mermaid.run(); // или mermaid.init()
+      } else {
+        console.error("Mermaid не загружен");
+      }
     } else if (data.model === "image") {
       const add = document.createElement("div")
       const img = document.createElement("img")
