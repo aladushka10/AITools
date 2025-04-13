@@ -38,20 +38,16 @@ def g4f_query():
             response = functions.process_user_request_text_answer(user_input)
             return jsonify({"model": "text", "response": response})
         if model_type == "2":
-            url = functions.process_user_request_image_answer(user_input)
+            eng_user_input = functions.translate_user_request_to_english(user_input)
+            print(f"Translated to english user input: {eng_user_input}")
+            url = functions.process_user_request_image_answer(eng_user_input)
             print("Generated image URL: {url}")
             return jsonify({"model": "image", "response": url})
         if model_type == "3":
             print("Audio answer...")
-            response = functions.process_user_request_text_answer(user_input)
-            tts = gTTS(response, lang='ru')  # или 'ru' для русского
-            filename = f"{uuid.uuid4().hex}.mp3"
-            print(filename)
-            static_audio_path = os.path.join("static", "generated", filename)
-            print(static_audio_path)
-            tts.save(static_audio_path)
-            print("Success")
-            return jsonify({"model": "audio", "response": f"/static/generated/{filename}"})
+            audio_url = functions.process_user_request_audio_answer(user_input)
+            print(audio_url)
+            return jsonify({"model": "audio", "response": f"{audio_url}"})
         return jsonify({"response": "Error occured. Try again!"})
 
     except Exception as e:
