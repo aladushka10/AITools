@@ -1,6 +1,8 @@
 #venv
 venv
 
+#generated
+
 # Logs
 logs
 *.log
