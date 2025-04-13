@@ -71,16 +71,14 @@ document.addEventListener("DOMContentLoaded", () => {
       img.innerHTML = data.response
       img.className = "mermaid"
       insertContainer.append(img)
-    
-      const id = `mermaid-${Date.now()}`;
 
       document.querySelector(".response:last-of-type").append(insertContainer)
       
       if (window.mermaid) {
         mermaid.run(); // или mermaid.init()
+        const id = `mermaid-${Date.now()}`;
         window.mermaid.render(id, data.response).then(({ svg }) => {
           insertContainer.innerHTML = svg;
-          document.querySelector(".response:last-of-type").appendChild(insertContainer);
   
           const saveBtn = document.createElement("button");
           saveBtn.textContent = "💾 Сохранить как SVG";
